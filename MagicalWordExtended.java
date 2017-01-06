@@ -76,10 +76,10 @@ class TestClass {
 
 
 
-                /*if (!isPrime(ASCIIword[i])) {
+                if (!isPrime(ASCIIword[i])) {
                     ASCIIword[i] = calculateNearPrime(ASCIIword[i]);
                     word[i] = (char)ASCIIword[i];
-                    }*/
+                    }
                 }
             //System.out.println(ASCIIword[0]);
             T--;
