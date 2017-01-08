@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
 
-  public CalculateLCM(int x, int y) {
+  public static long CalculateLCM(long x, long y) {
     if(x%y==0 || y%x==0) {
       if(x>y) return x;
       else return y;
@@ -15,20 +15,23 @@ public class Main {
   }
 
    public static void main(String []args) throws IOException {
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
      int T = Integer.parseInt(br.readLine());
      while(T>0) {
         int arrayLength = Integer.parseInt(br.readLine());
-        int[] SensorArray = new int [arrayLength];
+        long[] SensorArray = new long [arrayLength];
 
         //Since all the elements of the array are given in the same line.
         String[] tempArray = br.readLine().split(" ");
+
         for(int i=0;i<arrayLength;i++) {
           SensorArray[i] = Integer.parseInt(tempArray[i]);
         }
 
         Arrays.sort(SensorArray);
-        int Time = CalculateLCM(SensorArray[0],SensorArray[1]);
+        long Time = CalculateLCM(SensorArray[0],SensorArray[1]);
         System.out.println(Time);
        T--;
      }
    }
+}
