@@ -10,51 +10,64 @@ int defaultM(int posr, int posc) {
 }
 void next_move(int posr, int posc, char board[5][5]) {
     int cornerCount=0;
-    int LoopCount=0;
+    int i,j;
     int defaultMove = defaultM(posr, posc);
-    while(cornerCount<4&&LoopCount<100){
+    int CountDirty = 0;
+    int CleanCount = 0;
+
+    for(i=0;i<5;i++)
+        for(j=0;j<5;j++)
+        if(board[i][j]=='d') {
+        CountDirty++;
+    }
+
+    while(cornerCount<4&&CleanCount<CountDirty){
             if(board[posr+1][posc] == 'd') {
                 printf("DOWN\n");
                 printf("CLEAN\n");
+                CleanCount++;
                 board[posr+1][posc] = '-';
                 posr = posr+1;
             }
             else if(board[posr-1][posc] == 'd') {
                 printf("UP\n");
                 printf("CLEAN\n");
+                CleanCount++;
                 board[posr-1][posc] = '-';
                 posr = posr-1;
             }
             else if(board[posr][posc+1] == 'd') {
                 printf("RIGHT\n");
                 printf("CLEAN\n");
+                CleanCount++;
                 board[posr][posc+1] = '-';
                 posc = posc+1;
             }
             else if(board[posr][posc-1] == 'd') {
                 printf("LEFT\n");
                 printf("CLEAN\n");
+                CleanCount++;
                 board[posr][posc-1] = '-';
                 posc = posc-1;
             }
             else if(posr==0&&posc==0) {
-                printf("DOWN\n");
-                posr = posr+1;
+                printf("RIGHT\n");
+                posc = posc+1;
                 cornerCount++;
             }
             else if(posr==4&&posc==0) {
-                printf("RIGHT\n");
-                posr = posc+1;
-                cornerCount++;
-            }
-            else if(posr==4&&posc==4) {
                 printf("UP\n");
                 posr = posr-1;
                 cornerCount++;
             }
-            else if(posr==0&&posc==4) {
+            else if(posr==4&&posc==4) {
                 printf("LEFT\n");
                 posc = posc-1;
+                cornerCount++;
+            }
+            else if(posr==0&&posc==4) {
+                printf("DOWN\n");
+                posr = posr+1;
                 defaultMove=0;
                 cornerCount++;
             }
@@ -76,7 +89,6 @@ void next_move(int posr, int posc, char board[5][5]) {
                 printf("LEFT\n");
                 }
             }
-            LoopCount++;
     }
 }
 int main(void) {
