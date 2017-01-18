@@ -12,18 +12,18 @@ public class Main {
 
       int[] inputArray = new int [arrayLength];
       int[] resultArray = new int [arrayLength];
-      String[] tempArray = br.readLine().split(" ");
-      for(int i=1,i<=arrayLength;i++) {
+      tempArray = br.readLine().split(" ");
+      for(int i=0;i<arrayLength;i++) {
         inputArray[i] = Integer.parseInt(tempArray[i]);
       }
 
-      int finalIndexLocation = arrayLength-numRotations;
-      resultArray[arrayLength-numRotations] = inputArray[arrayLength];
-      for(int i=1;i<finalIndexLocation;i++) {
+      int finalIndexLocation = (arrayLength-numRotations)-1;
+      resultArray[finalIndexLocation] = inputArray[arrayLength-1];
+       System.out.print(resultArray[finalIndexLocation]+" ");
+
+      for(int i=0;i<=arrayLength-2;i++) {
         resultArray[(finalIndexLocation+i)%arrayLength] = inputArray[i];
-      }
-      for(int i=finalIndexLocation+1;i<=arrayLength;i++) {
-        resultArray[(finalIndexLocation+i)] = inputArray[i];
+         System.out.print(resultArray[(finalIndexLocation+i)%arrayLength]+" ");
       }
    }
  }
