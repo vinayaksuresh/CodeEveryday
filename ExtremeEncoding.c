@@ -43,44 +43,52 @@ Case 1:
 5 10 12 7
 3 10 3 2*/
 
-#include<stdio.h>
+#include <stdio.h>
 
-int decodeIntegerA(int x){
-	x = x&(15);
+int decodeIntegerA(int x)
+{
+	x = x & (15);
 	return x;
 }
 
-int decodeIntegerB(int x) {
-	x = x>>16;
+int decodeIntegerB(int x)
+{
+	x = x >> 16;
 	return x;
 }
 
-int main() {
-  long long int T = 0,n = 0,i = 0, caseCount = 0;
-	scanf("%d",&T);
-  if (T >= 1 && T <=100){
-	   while(T>0) {
-	       caseCount++;
-	       i = 0;
-	       n = 0;
-	       scanf("%d",&n);
-	       long long int decodedA[n], decodedB[n], encodedArray[n];
-	       for(i=0;i<n;i++) {
-	          scanf("%d",&encodedArray[i]);
-	          decodedA[i] = decodeIntegerA(encodedArray[i]);
-	          decodedB[i] = decodeIntegerB(encodedArray[i]);
-	       }
-	       printf("Case %d:\n", caseCount);
-	       for(i=0;i<n;i++) {
-	          printf("%d ", decodedA[i]);
-	       }
-	       printf("\n");
-	       for(i=0;i<n;i++) {
-	           printf("%d ", decodedB[i]);
-	       }
-	       printf("\n\n");
-	       T--;
-       }
-    }
+int main()
+{
+	long long int T = 0, n = 0, i = 0, caseCount = 0;
+	scanf("%d", &T);
+	if (T >= 1 && T <= 100)
+	{
+		while (T > 0)
+		{
+			caseCount++;
+			i = 0;
+			n = 0;
+			scanf("%d", &n);
+			long long int decodedA[n], decodedB[n], encodedArray[n];
+			for (i = 0; i < n; i++)
+			{
+				scanf("%d", &encodedArray[i]);
+				decodedA[i] = decodeIntegerA(encodedArray[i]);
+				decodedB[i] = decodeIntegerB(encodedArray[i]);
+			}
+			printf("Case %d:\n", caseCount);
+			for (i = 0; i < n; i++)
+			{
+				printf("%d ", decodedA[i]);
+			}
+			printf("\n");
+			for (i = 0; i < n; i++)
+			{
+				printf("%d ", decodedB[i]);
+			}
+			printf("\n\n");
+			T--;
+		}
+	}
 	return 0;
 }

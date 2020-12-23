@@ -55,7 +55,6 @@ def get_path(graph, start_node, end_node):
     return transit_nodes
 
 
-
 def get_shortest_path(graph, start_node, end_node):
     '''
         Breadth First Search - Find the shortest path between two nodes of a mesh graph
@@ -86,6 +85,8 @@ def get_shortest_path(graph, start_node, end_node):
     return None
 
 # Tests
+
+
 class Test(unittest.TestCase):
 
     def setUp(self):

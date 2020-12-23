@@ -7,13 +7,15 @@ import re
 import sys
 
 # Complete the twoStrings function below.
+
+
 def twoStrings(s1, s2):
     a = {each: 1 for each in s1}
     for each in s2:
         if each in a:
             return 'YES'
-    return 'NO' 
-    
+    return 'NO'
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

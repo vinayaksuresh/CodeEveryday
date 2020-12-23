@@ -36,7 +36,6 @@ def get_closing_paren(sentence, opening_paren_index):
     return -1
 
 
-
 # Tests
 
 class Test(unittest.TestCase):
@@ -45,7 +44,6 @@ class Test(unittest.TestCase):
         actual = get_closing_paren('((((()))))', 2)
         expected = 7
         self.assertEqual(actual, expected)
-
 
     def test_mixed_openers_and_closers(self):
         actual = get_closing_paren('()()((()()))', 5)
