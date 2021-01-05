@@ -14,8 +14,8 @@ class Solution(object):
         :type targets: List[str]
         :rtype: str
         """
-        
-        for index, source, target in sorted(zip(indexes, sources, targets), reverse = True):
+
+        for index, source, target in sorted(zip(indexes, sources, targets), reverse=True):
             i = index
             j = 0
             while j < len(source) and S[i] == source[j]:
