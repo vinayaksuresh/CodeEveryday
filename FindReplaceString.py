@@ -24,3 +24,4 @@ class Solution(object):
             if (i - index) == (len(source)):
                 S = S[:index] + target + S[i:]
         return S
+    
