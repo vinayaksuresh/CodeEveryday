@@ -10,27 +10,28 @@ class TreeNode:
 
 
 class Solution:
+    preorder = None
 
-    def get_root(self, nodes, pre_order):
-        for each in pre_order:
+    def get_root(self, nodes):
+        for each in self.preorder:
             try:
                 index = nodes.index(each)
                 return index, each
             except Exception:
                 continue
 
-    def treeify(self, nodes, preorder):
-        root_index, root_value = self.get_root(nodes, preorder)
+    def treeify(self, nodes):
+        root_index, root_value = self.get_root(nodes)
         root = TreeNode(root_value)
 
         left_tree = nodes[:root_index]
         right_tree = nodes[root_index+1:]
 
         if len(left_tree) > 0:
-            root.left = self.treeify(left_tree, preorder)
+            root.left = self.treeify(left_tree)
 
         if len(right_tree) > 0:
-            root.right = self.treeify(right_tree, preorder)
+            root.right = self.treeify(right_tree)
 
         return root
 
@@ -38,4 +39,5 @@ class Solution:
         if len(preorder) == 0 or preorder[0] == -1:
             return TreeNode(val=-1)
 
-        return self.treeify(inorder, preorder)
+        self.preorder = preorder
+        return self.treeify(inorder)
