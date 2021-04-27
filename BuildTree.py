@@ -16,6 +16,7 @@ class Solution:
         for each in self.preorder:
             try:
                 index = nodes.index(each)
+                self.preorder.remove(each)
                 return index, each
             except Exception:
                 continue
